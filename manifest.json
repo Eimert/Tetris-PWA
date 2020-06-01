@@ -1,10 +1,10 @@
 {
-  "name": "PWA Starter",
+  "name": "Tetris PWA",
   "display": "standalone",
   "start_url": "/",
   "short_name": "starter",
   "theme_color": "#686bd2",
-  "description": "This is a PWA Starter app",
+  "description": "Play Tetris and install the icon to homescreen.",
   "orientation": "any",
   "background_color": "#686bd2",
   "related_applications": [],

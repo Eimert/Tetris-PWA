@@ -13,7 +13,7 @@ export class AppIndex extends LitElement {
   static get styles() {
     return css`
       main {
-        padding: 16px;
+        padding: 4px;
       }
     `;
   }
@@ -32,6 +32,13 @@ export class AppIndex extends LitElement {
         component: "app-about",
         action: async() => {
           await import('./app-about.js');
+        },
+      },
+      {
+        path: "/play",
+        component: "app-play",
+        action: async() => {
+          await import('./app-play.js');
         },
       }
     ]);

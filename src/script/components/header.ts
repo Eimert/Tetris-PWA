@@ -4,7 +4,7 @@ import { LitElement, css, html, customElement, property } from 'lit-element';
 @customElement('app-header')
 export class AppHeader extends LitElement {
 
-  @property({ type: String }) title: string = 'PWA Starter';
+  @property({ type: String }) title: string = 'Tetris PWA';
 
   static get styles() {
     return css`
@@ -16,26 +16,24 @@ export class AppHeader extends LitElement {
         padding-right: 16px;
         background: var(--app-color-primary);
         color: white;
-        height: 4em;
+        height: 1.5em;
       }
 
       header h1 {
         margin-top: 0;
         margin-bottom: 0;
-        font-size: 24px;
-        font-weight: normal;
-      }
-
-      nav {
-        width: 7em;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      nav a {
-        color: white;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
+      }
+
+      header a {
+        text-decoration: none;
+        
+      }
+
+      a:visited {
+        color: white;
+        style: normal;
       }
     `;
   }
@@ -47,12 +45,9 @@ export class AppHeader extends LitElement {
   render() {
     return html`
       <header>
-        <h1>${this.title}</h1>
-
-        <nav>
-          <a href="./">Home</a>
-          <a href="./about">About</a>
-        </nav>
+        <div class="item"><p>next:</p></div>
+        <div class="item"><a href="/"><h1>${this.title}</h1></a></div>
+        <div class="item"><p>score</p></div>
       </header>
     `;
   }

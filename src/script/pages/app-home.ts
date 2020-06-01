@@ -2,6 +2,24 @@ import { LitElement, css, html, customElement } from 'lit-element';
 
 // For more info on the @pwabuilder/pwainstall component click here https://github.com/pwa-builder/pwa-install
 import '@pwabuilder/pwainstall';
+// import Tetris from 'tetris-ts';
+// import * as Tetris from 'tetris-ts';
+// import { Tetris } from 'tetris-ts';
+
+// console.dir(Tetris);
+const el = document.getElementById("tetris");
+// const canvas = document.getElementById("tetris-canvas");
+ 
+const callback = function(data) {
+    // Do something with the data returned from the game
+    console.log(data);
+};
+
+const tetris = new Tetris(el, callback, {
+    frameConstant: 60,
+    linesPerLevel: 10,
+});
+
 
 @customElement('app-home')
 export class AppHome extends LitElement {
@@ -43,6 +61,10 @@ export class AppHome extends LitElement {
           width: 50%;
         }
       }
+
+      #tetris-canvas {
+        border: 1px solid purple;
+      }
     `;
   }
 
@@ -63,22 +85,24 @@ export class AppHome extends LitElement {
   render() {
     return html`
       <div>
-
         <div id="welcomeBlock">
 
-          <img src="assets/icons/icon_512.png" alt="app icon">
-          <h2>Welcome!</h2>
+          <!-- <img src="assets/icons/icon_512.png" alt="app icon"> -->
+          <h2>Tetris PWA By Eimert</h2>
+          <button>button</button>
+          <a href="/play">play</a>
+          <div id="tetris" style="width: 300px;">
 
-          <p>
-            Welcome to the lit-element edition of the <a href="https://pwabuilder.com">PWABuilder</a> pwa-starter!
+          <!-- <canvas id='tetris-canvas' width='300' height='500'></canvas>
+          <div>
+            <label for='level-input'>Start level:</label>
+            <input id='level-input' name='level-input' type='number' min='0' max='19' value='5'/>
+            <button id='start-stop-btn'>Play/Pause</button>
+            <button id='quit-btn'>Quit</button>
+          </div> -->
 
-            Be sure to head back to <a href="https://pwabuilder.com">PWABuilder</a> when you are ready to ship this PWA to the Microsoft, Google Play and Samsung Galaxy stores!
-          </p>
 
-          ${'share' in navigator ? html`<button @click="${this.share}">Share this Starter!</button>` : null}
-        </div>
-
-        <pwa-install>Install PWA Starter</pwa-install>
+        <pwa-install>Install Tetris</pwa-install>
       </div>
     `;
   }
